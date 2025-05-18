@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - NoiseCore</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>NoiseCore</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="membership.html" class="highlight">Membership</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="cart.html" class="cart-icon active"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-header">
+                <a href="javascript:history.back()" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h1>Shopping Cart</h1>
+            </div>
+            
+            <div class="cart-items">
+                <!-- Cart Item 1 -->
+                <div class="cart-item">
+                    <div class="item-select">
+                        <input type="checkbox" id="item1" checked>
+                        <label for="item1"></label>
+                    </div>
+                    <div class="item-image">
+                        <div class="discount-tag">72%</div>
+                        <img src="../images/headphone1.webp" alt="NC Buds 3 Pro">
+                    </div>
+                    <div class="item-details">
+                        <h3>NC Buds 3 Pro</h3>
+                        <div class="item-qty">
+                            <button class="qty-btn minus">-</button>
+                            <span class="qty-value">2</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <div class="item-price">
+                            <p class="original-price">RP 888.888</p>
+                            <p class="current-price">RP 888.888</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart Item 2 -->
+                <div class="cart-item">
+                    <div class="item-select">
+                        <input type="checkbox" id="item2">
+                        <label for="item2"></label>
+                    </div>
+                    <div class="item-image">
+                        <div class="discount-tag">80%</div>
+                        <img src="../images/speaker1.webp" alt="NC Buds 3 Pro">
+                    </div>
+                    <div class="item-details">
+                        <h3>NC Buds 3 Pro</h3>
+                        <div class="item-qty">
+                            <button class="qty-btn minus">-</button>
+                            <span class="qty-value">3</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <div class="item-price">
+                            <p class="original-price">RP 888.888</p>
+                            <p class="current-price">RP 888.888</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart Item 3 -->
+                <div class="cart-item">
+                    <div class="item-select">
+                        <input type="checkbox" id="item3" checked>
+                        <label for="item3"></label>
+                    </div>
+                    <div class="item-image">
+                        <img src="../images/earbud1.webp" alt="NC Buds 3 Pro">
+                    </div>
+                    <div class="item-details">
+                        <h3>NC Buds 3 Pro</h3>
+                        <div class="item-qty">
+                            <button class="qty-btn minus">-</button>
+                            <span class="qty-value">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <div class="item-price">
+                            <p class="current-price">RP 888.888</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart Item 4 -->
+                <div class="cart-item">
+                    <div class="item-select">
+                        <input type="checkbox" id="item4">
+                        <label for="item4"></label>
+                    </div>
+                    <div class="item-image">
+                        <img src="../images/openear1.webp" alt="NC Buds 3 Pro">
+                    </div>
+                    <div class="item-details">
+                        <h3>NC Buds 3 Pro</h3>
+                        <div class="item-qty">
+                            <button class="qty-btn minus">-</button>
+                            <span class="qty-value">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <div class="item-price">
+                            <p class="current-price">RP 888.888</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <div class="subtotal">
+                    <h3>Subtotal</h3>
+                    <p class="total-price">RP 8.888.888</p>
+                </div>
+                <button class="checkout-btn">Check Out</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Home</h3>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">Troubleshooting</a></li>
+                        <li><a href="#">Repair & Replacement</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Sign in or join NoiseCore</a></li>
+                        <li><a href="#">My NoiseCore Perks</a></li>
+                        <li><a href="#">Register Your Products</a></li>
+                        <li><a href="#">NoiseCore Care</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                        <li><a href="#">ESG</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Room</a></li>
+                        <li><a href="#">Stories</a></li>
+                        <li><a href="#">Partnerships & Licensing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Offers</h3>
+                    <ul>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Corporate Gifting</a></li>
+                        <li><a href="#">Partner & Employee Program</a></li>
+                        <li><a href="#">Certified Refurbished</a></li>
+                        <li><a href="#">Trade Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Additional Links</h3>
+                    <ul>
+                        <li><a href="#">Automotive</a></li>
+                        <li><a href="#">Reseller Portal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 NoiseCore Corp ID</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+</html> 
