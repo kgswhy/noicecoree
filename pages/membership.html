@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Membership - NoiseCore</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/membership.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>NoiseCore</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="membership.html" class="active highlight">Membership</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#" class="user-icon"><i class="fas fa-user"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Membership Hero Section -->
+    <section class="membership-hero">
+        <div class="container">
+            <h1>Membership</h1>
+            <p>Join the NoiseCore community and unlock exclusive benefits!</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>THE BENEFITS</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Exclusive Access to New Products</h3>
+                    <p>Be the first to try our newest technology before it hits the market.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>Member-Only Discounts</h3>
+                    <p>Enjoy special pricing on all NoiseCore products throughout the year.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Birthday Surprises</h3>
+                    <p>Celebrate your special day with exclusive gifts and offers from NoiseCore.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Priority Customer Support</h3>
+                    <p>Skip the queue with dedicated support for all your NoiseCore products.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Trade-In Offers</h3>
+                    <p>Upgrade to the latest models with exclusive trade-in values for members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="registration-section">
+        <div class="container">
+            <h2>Join Membership</h2>
+            <div class="form-container">
+                <form id="membershipForm" novalidate>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+                        <div class="error-message" id="fullNameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address">
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                        </select>
+                        <div class="error-message" id="genderError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                        <div class="error-message" id="dateOfBirthError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-container">
+                            <input type="password" id="password" name="password" placeholder="Create a password">
+                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-meter-fill" id="strengthMeter"></div>
+                            </div>
+                            <div class="strength-text" id="strengthText">Password strength</div>
+                        </div>
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="termsAgreement" name="termsAgreement">
+                        <label for="termsAgreement">Yes, I've read and accept the <a href="#">Terms & Conditions</a> and I'm ready to join the NoiseCore community!</label>
+                        <div class="error-message" id="termsAgreementError"></div>
+                    </div>
+
+                    <button type="submit" class="btn" id="createAccountBtn">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Welcome to NoiseCore!</h3>
+            <p>Your membership has been successfully created. Get ready to experience premium sound like never before!</p>
+            <a href="../index.html" class="btn">Return to Homepage</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Home</h3>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">Troubleshooting</a></li>
+                        <li><a href="#">Track Shipment</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Warranty and Replacements</a></li>
+                        <li><a href="#">My Orders</a></li>
+                        <li><a href="#">Product Care</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News Room</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Partnerships & Licensing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Offers</h3>
+                    <ul>
+                        <li><a href="#">Gift Cards</a></li>
+                        <li><a href="#">Student Offering</a></li>
+                        <li><a href="#">Military & Corporate Program</a></li>
+                        <li><a href="#">Certified Refurbished</a></li>
+                        <li><a href="#">Trade-in</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Additional Links</h3>
+                    <ul>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Register Product</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 NoiseCore Corp ID</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/membership.js"></script>
+</body>
+</html> 
