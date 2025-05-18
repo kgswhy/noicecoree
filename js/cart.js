@@ -5,24 +5,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('.item-select input[type="checkbox"]');
     const checkoutBtn = document.querySelector('.checkout-btn');
     
-    // Calculate and update subtotal
-    function updateSubtotal() {
+    // Format price with commas and currency symbol
+    function formatPrice(price) {
+        return price.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+    
+    // Update total price
+    function updateTotalPrice() {
+        const total = calculateTotal();
         const totalPrice = document.querySelector('.total-price');
+        totalPrice.textContent = formatPrice(total);
+    }
+    
+    // Calculate total price
+    function calculateTotal() {
         let total = 0;
+        const checkedItems = document.querySelectorAll('.cart-item input[type="checkbox"]:checked');
         
-        cartItems.forEach(item => {
-            const checkbox = item.querySelector('input[type="checkbox"]');
-            if (checkbox.checked) {
-                const priceText = item.querySelector('.current-price').textContent;
-                const qty = parseInt(item.querySelector('.qty-value').textContent);
-                const price = parseInt(priceText.replace(/\D/g, ''));
-                total += price * qty;
-            }
+        checkedItems.forEach(checkbox => {
+            const cartItem = checkbox.closest('.cart-item');
+            const quantity = parseInt(cartItem.querySelector('.qty-value').textContent);
+            const price = parseFloat(cartItem.querySelector('.current-price').textContent.replace('$', '').replace(',', ''));
+            total += quantity * price;
         });
         
-        // Format the total with dots as thousand separators
-        const formattedTotal = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        totalPrice.textContent = `RP ${formattedTotal}`;
+        return total;
     }
     
     // Quantity button event listeners
@@ -39,14 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             qtyValue.textContent = qty;
-            updateSubtotal();
+            updateTotalPrice();
         });
     });
     
     // Checkbox event listeners
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
-            updateSubtotal();
+            updateTotalPrice();
         });
     });
     
@@ -65,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // In a real application, you would redirect to a checkout page
     });
     
-    // Initialize subtotal on page load
-    updateSubtotal();
+    // Initialize total price on page load
+    updateTotalPrice();
     
     // Add hover animation to cart items
     cartItems.forEach(item => {
