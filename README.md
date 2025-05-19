@@ -137,6 +137,7 @@ The website is fully responsive across all devices:
 2. Google Fonts (Poppins): https://fonts.google.com/
 3. CSS Tricks (Flexbox Guide): https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 4. MDN Web Docs: https://developer.mozilla.org/
+5. Images: All images used in this project are sourced from Unsplash (https://unsplash.com/), a platform providing high-quality, free-to-use images under the Unsplash License.
 
 ## Language Consistency
 The website maintains English language throughout all pages for consistency.
