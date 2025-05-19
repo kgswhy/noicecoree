@@ -1,91 +1,156 @@
-# NoiseCore Website
-
-A responsive website for the NoiseCore audio technology brand, featuring a modern design and interactive elements.
+# NoiseCore - Premium Audio Technology Website
 
 ## Project Overview
+NoiseCore is an innovative audio technology brand specializing in high-quality sound experiences. This project implements a comprehensive website showcasing NoiseCore's products and enhancing customer engagement through an intuitive user interface.
 
-NoiseCore is an innovative audio technology brand specializing in premium headphones, earbuds, speakers, and audio accessories. This website provides a user-friendly interface to showcase NoiseCore's products and engage with customers.
+## Design Process
+### Figma Prototype
+The website design was first prototyped in Figma, implementing:
+- Color and text style systems
+- Interactive components and variants
+- Navigation flows
+- Consistent layout structures
+- Different designs from the final implementation while maintaining theme consistency
 
-## Features
+### Design Principles
+- **Color Scheme**: 
+  - Primary: #ff6b00 (Orange)
+  - Secondary: #1e1e1e (Dark Gray)
+  - Dark: #121212
+  - Light: #f8f8f8
+  - White: #ffffff
 
-- **Responsive Design**: Fully responsive layout that adapts to desktop, tablet, and mobile devices
-- **Interactive Elements**: Animations, hover effects, and interactive components enhance user experience
-- **Product Filtering**: Category filtering system on the Products page
-- **Form Validation**: Client-side validation for the membership registration form
-- **Modern UI**: Clean and professional design with attention to typography, color, and spacing
+- **Typography**: 
+  - Font Family: Poppins
+  - Weights: 300, 400, 500, 600, 700
+  - Responsive sizing using rem units
 
-## Pages
+- **Layout Structure**:
+  - Consistent header and footer across all pages
+  - Responsive grid and flexbox layouts
+  - Mobile-first approach
 
-1. **Home Page**: Features a hero section with a promotional banner, top products, and current promotions
-2. **Products Page**: Displays all NoiseCore products with filtering functionality by category
-3. **About Page**: Provides brand information, mission, values, history, and team members
-4. **Deals Page**: Showcases current promotions and special offers
-5. **Membership Page**: Features a registration form with validation for joining the NoiseCore membership program
+## Technical Implementation
 
-## Technologies Used
+### Responsive Design
+- Meta viewport tag implementation
+- Media queries for different screen sizes:
+  - Mobile: < 480px
+  - Tablet: < 768px
+  - Desktop: > 768px
 
-- **HTML5**: Semantic markup for structure
-- **CSS3**: Advanced styling with Flexbox, Grid, Custom Properties (variables), and animations
-- **JavaScript**: Interactive elements, form validation, and dynamic content
-- **Responsive Design**: Media queries for different screen sizes
-- **Web Fonts**: Google Fonts integration
+### CSS Features
+1. Flexbox Layout
+2. CSS Grid System
+3. Animations & Transitions
+4. Custom Properties (CSS Variables)
+5. Box Shadow Effects
+6. Gradient Backgrounds
+7. Transform Properties
+
+### JavaScript Features
+1. Product Filtering System
+2. Form Validation
+3. Cart Functionality
+4. Mobile Navigation
+5. Dynamic Content Loading
+
+### Form Validation (Membership Page)
+Five types of form validation implemented:
+1. Name validation (minimum length, no special characters)
+2. Email format validation
+3. Password strength check
+4. Date of birth validation
+5. Terms and conditions agreement check
 
 ## Project Structure
+```
+noicecore/
+├── css/
+│   ├── style.css
+│   ├── products.css
+│   ├── about.css
+│   ├── deals.css
+│   ├── membership.css
+│   └── cart.css
+├── js/
+│   ├── script.js
+│   ├── products.js
+│   ├── cart.js
+│   └── membership.js
+├── images/
+│   └── [product images]
+├── pages/
+│   ├── products.html
+│   ├── about.html
+│   ├── deals.html
+│   ├── membership.html
+│   └── cart.html
+└── index.html
+```
 
-```
-noisecore/
-│
-├── index.html               # Home page
-├── css/                     # CSS stylesheets
-│   ├── style.css            # Main stylesheet
-│   ├── membership.css       # Membership page styles
-│   ├── products.css         # Products page styles
-│   ├── about.css            # About page styles
-│   └── deals.css            # Deals page styles
-│
-├── js/                      # JavaScript files
-│   ├── script.js            # Main JavaScript file
-│   ├── membership.js        # Membership form validation
-│   ├── products.js          # Products filtering functionality
-│   ├── about.js             # About page animations
-│   └── deals.js             # Deals page functionality
-│
-├── pages/                   # Additional HTML pages
-│   ├── products.html        # Products page
-│   ├── about.html           # About page
-│   ├── deals.html           # Deals page
-│   └── membership.html      # Membership registration
-│
-├── images/                  # Image assets
-│   └── [various images]     # Product images and other visual assets
-│
-└── README.md                # Project documentation
-```
+## Features by Page
+
+### Home Page
+- Hero section with membership promotion
+- Top 5 products showcase
+- Current promotions section
+- Call-to-action buttons for Products and Deals pages
+
+### Products Page
+- Product filtering by category
+- Product search functionality
+- Responsive product grid
+- Product cards with:
+  - Product image
+  - Product name
+  - Ratings
+  - Price
+  - Add to cart button
+
+### About Page
+- Company introduction
+- Brand mission and values
+- Company history
+- Team section
+
+### Deals Page
+- Membership promotion section
+- Current deals and discounts
+- Special offers
+- Limited time promotions
+
+### Join Membership Page
+- Interactive registration form
+- Custom form validation
+- Terms and conditions section
+- Success/error message handling
+
+## Responsive Design
+The website is fully responsive across all devices:
+- Desktop: Full layout with grid systems
+- Tablet: Adjusted layouts and navigation
+- Mobile: Streamlined interface with hamburger menu
+
+## References
+1. Font Awesome Icons: https://fontawesome.com/
+2. Google Fonts (Poppins): https://fonts.google.com/
+3. CSS Tricks (Flexbox Guide): https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+4. MDN Web Docs: https://developer.mozilla.org/
+
+## Language Consistency
+The website maintains English language throughout all pages for consistency.
 
 ## Browser Compatibility
+Tested and working on:
+- Google Chrome
+- Mozilla Firefox
+- Safari
+- Microsoft Edge
 
-The website is designed to work on modern browsers including:
-- Chrome (latest version)
-- Firefox (latest version)
-- Safari (latest version)
-- Edge (latest version)
-- Mobile browsers (iOS Safari, Android Chrome)
-
-## Responsive Breakpoints
-
-- Mobile: Up to 480px
-- Tablet: 481px to 768px
-- Desktop: 769px and above
-
-## Credits
-
-- Fonts: [Google Fonts](https://fonts.google.com/) - Poppins
-- Icons: [Font Awesome](https://fontawesome.com/)
-
-## License
-
-This project is created for educational purposes.
-
----
-
-© 2023 NoiseCore 
+## Future Improvements
+1. Add product search autocomplete
+2. Implement user authentication
+3. Add shopping cart persistence
+4. Enhance form validation feedback
+5. Add product filtering by price range 

@@ -104,14 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Validate name (Validation type 1: Required field)
         if (!validateRequired(fullName, 'fullNameError', 'Full name is required')) {
             isValid = false;
-        } else if (!validateNameFormat(fullName, 'fullNameError')) {
+        } else if (!validateName(fullName.value.trim())) {
             isValid = false;
         }
         
         // Validate email (Validation type 2: Email format)
         if (!validateRequired(email, 'emailError', 'Email is required')) {
             isValid = false;
-        } else if (!validateEmailFormat(email, 'emailError')) {
+        } else if (!validateEmail(email.value.trim())) {
             isValid = false;
         }
         
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Validate password (Validation type 5: Password strength)
         if (!validateRequired(password, 'passwordError', 'Password is required')) {
             isValid = false;
-        } else if (!validatePasswordStrength(password, 'passwordError')) {
+        } else if (!validatePassword(password.value)) {
             isValid = false;
         }
         
@@ -189,49 +189,80 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    function validateNameFormat(input, errorId) {
-        const errorElement = document.getElementById(errorId);
-        const formGroup = input.closest('.form-group');
-        const value = input.value.trim();
+    function validateName(name) {
+        // Clear previous error
+        const errorElement = document.getElementById('fullNameError');
+        const formGroup = fullName.closest('.form-group');
+        errorElement.textContent = '';
         
-        // Check if name contains only letters and spaces
-        if (!/^[A-Za-z\s]+$/.test(value)) {
-            errorElement.textContent = 'Name should contain only letters and spaces';
+        // Check minimum length
+        if (name.length < 2) {
+            errorElement.textContent = 'Name must be at least 2 characters long';
             formGroup.classList.add('error');
-            formGroup.classList.remove('success');
             return false;
         }
-        
-        // Check if name has at least 2 characters
-        if (value.length < 2) {
-            errorElement.textContent = 'Name should be at least 2 characters long';
-            formGroup.classList.add('error');
-            formGroup.classList.remove('success');
-            return false;
+
+        // Check for numbers
+        for (let char of name) {
+            if ('0123456789'.includes(char)) {
+                errorElement.textContent = 'Name cannot contain numbers';
+                formGroup.classList.add('error');
+                return false;
+            }
         }
-        
+
+        // Check for special characters (basic set)
+        const specialChars = '!@#$%^&*()_+=-[]{}|;:,.<>?/';
+        for (let char of name) {
+            if (specialChars.includes(char)) {
+                errorElement.textContent = 'Name cannot contain special characters';
+                formGroup.classList.add('error');
+                return false;
+            }
+        }
+
+        formGroup.classList.add('success');
         return true;
     }
 
-    function validateEmailFormat(input, errorId) {
-        const errorElement = document.getElementById(errorId);
-        const formGroup = input.closest('.form-group');
-        const value = input.value.trim();
-        
-        // Basic email validation without regex
-        const hasAtSymbol = value.includes('@');
-        const hasDomain = value.split('@')[1] && value.split('@')[1].includes('.');
-        const hasExtension = value.split('.').pop().length >= 2;
-        const hasNoSpaces = !value.includes(' ');
-        const hasUsername = value.split('@')[0].length > 0;
-        
-        if (!hasAtSymbol || !hasDomain || !hasExtension || !hasNoSpaces || !hasUsername) {
-            errorElement.textContent = 'Please enter a valid email address';
+    function validateEmail(email) {
+        const errorElement = document.getElementById('emailError');
+        const formGroup = email.closest('.form-group');
+        errorElement.textContent = '';
+
+        // Check for @ symbol
+        const atIndex = email.indexOf('@');
+        if (atIndex === -1) {
+            errorElement.textContent = 'Email must contain @ symbol';
             formGroup.classList.add('error');
-            formGroup.classList.remove('success');
             return false;
         }
-        
+
+        // Check for dots after @
+        const dotIndex = email.indexOf('.', atIndex);
+        if (dotIndex === -1) {
+            errorElement.textContent = 'Email must contain a domain (e.g., .com)';
+            formGroup.classList.add('error');
+            return false;
+        }
+
+        // Check local part length
+        const localPart = email.substring(0, atIndex);
+        if (localPart.length < 1) {
+            errorElement.textContent = 'Email must have characters before @';
+            formGroup.classList.add('error');
+            return false;
+        }
+
+        // Check domain part length
+        const domainPart = email.substring(atIndex + 1);
+        if (domainPart.length < 3) {
+            errorElement.textContent = 'Invalid domain name';
+            formGroup.classList.add('error');
+            return false;
+        }
+
+        formGroup.classList.add('success');
         return true;
     }
 
@@ -288,43 +319,83 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    function validatePasswordStrength(input, errorId) {
-        const errorElement = document.getElementById(errorId);
-        const formGroup = input.closest('.form-group');
-        const value = input.value;
-        
-        // Password must be at least 8 characters
-        if (value.length < 8) {
+    function validatePassword(password) {
+        const errorElement = document.getElementById('passwordError');
+        const formGroup = password.closest('.form-group');
+        errorElement.textContent = '';
+        let strength = 0;
+        const minLength = 8;
+
+        // Check minimum length
+        if (password.length < minLength) {
             errorElement.textContent = 'Password must be at least 8 characters long';
             formGroup.classList.add('error');
-            formGroup.classList.remove('success');
             return false;
         }
-        
-        // Password must contain at least one uppercase letter
-        if (!/[A-Z]/.test(value)) {
-            errorElement.textContent = 'Password must contain at least one uppercase letter';
+
+        // Check for uppercase letters
+        let hasUpper = false;
+        for (let char of password) {
+            if (char >= 'A' && char <= 'Z') {
+                hasUpper = true;
+                strength += 25;
+                break;
+            }
+        }
+
+        // Check for lowercase letters
+        let hasLower = false;
+        for (let char of password) {
+            if (char >= 'a' && char <= 'z') {
+                hasLower = true;
+                strength += 25;
+                break;
+            }
+        }
+
+        // Check for numbers
+        let hasNumber = false;
+        for (let char of password) {
+            if (char >= '0' && char <= '9') {
+                hasNumber = true;
+                strength += 25;
+                break;
+            }
+        }
+
+        // Check for special characters
+        let hasSpecial = false;
+        const specialChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/';
+        for (let char of password) {
+            if (specialChars.includes(char)) {
+                hasSpecial = true;
+                strength += 25;
+                break;
+            }
+        }
+
+        // Update strength meter
+        strengthMeter.style.width = strength + '%';
+        if (strength <= 25) {
+            strengthMeter.style.backgroundColor = '#ff4444';
+            strengthText.textContent = 'Weak';
+        } else if (strength <= 50) {
+            strengthMeter.style.backgroundColor = '#ffbb33';
+            strengthText.textContent = 'Fair';
+        } else if (strength <= 75) {
+            strengthMeter.style.backgroundColor = '#00C851';
+            strengthText.textContent = 'Good';
+        } else {
+            strengthMeter.style.backgroundColor = '#007E33';
+            strengthText.textContent = 'Strong';
+        }
+
+        if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+            errorElement.textContent = 'Password must contain uppercase, lowercase, number, and special character';
             formGroup.classList.add('error');
-            formGroup.classList.remove('success');
             return false;
         }
-        
-        // Password must contain at least one lowercase letter
-        if (!/[a-z]/.test(value)) {
-            errorElement.textContent = 'Password must contain at least one lowercase letter';
-            formGroup.classList.add('error');
-            formGroup.classList.remove('success');
-            return false;
-        }
-        
-        // Password must contain at least one number
-        if (!/[0-9]/.test(value)) {
-            errorElement.textContent = 'Password must contain at least one number';
-            formGroup.classList.add('error');
-            formGroup.classList.remove('success');
-            return false;
-        }
-        
+
         return true;
     }
 
