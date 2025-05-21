@@ -241,7 +241,8 @@ nav {
     transition: var(--transition);
 }
 
-.nav-icons a:hover {
+.nav-icons a:hover,
+.nav-icons a.active {
     color: var(--primary);
 }
 

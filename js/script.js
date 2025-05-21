@@ -76,6 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Add active class to nav icons based on current page
+    const navIcons = document.querySelectorAll('.nav-icons a');
+    navIcons.forEach(icon => {
+        const iconPath = icon.getAttribute('href');
+        if (currentLocation.includes(iconPath)) {
+            icon.classList.add('active');
+        }
+    });
+
     // Image hover effect for product cards
     const productCards = document.querySelectorAll('.product-card');
     
